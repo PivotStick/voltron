@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700;800&display=swap');
+
+:root {
+	font-family: 'Baloo Chettan 2', sans-serif;
+	color: #333;
+	background-color: #fefefe;
+	overflow: hidden;
+}
+
+*,
+*:before,
+*:after {
+	margin: 0;
+	padding: 0;
+
+	box-sizing: border-box;
+
+	transition: none cubic-bezier(0, 0.75, 0.25, 1) 400ms;
+}
+
+h1 {
+	font-weight: 900;
+}
