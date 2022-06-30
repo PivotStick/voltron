@@ -1,7 +1,11 @@
+<script>
+	const play = (e) => e.currentTarget.play();
+</script>
+
 <main>
 	<section>
 		<h1>La timeline</h1>
-		<video src="/Timeline.mov" controls autoplay>
+		<video src="/Timeline.mov" loop autoplay on:click={play}>
 			<track kind="captions" />
 		</video>
 		<p>Sur une séquence on peut :</p>
@@ -15,7 +19,7 @@
 
 	<section>
 		<h1>Se déplacer</h1>
-		<video src="/Mouvements.mov" controls autoplay>
+		<video src="/Mouvements.mov" loop autoplay on:click={play}>
 			<track kind="captions" />
 		</video>
 		<p>Il est également possible de manœuvrer dans la simulation librement</p>
@@ -23,7 +27,7 @@
 
 	<section>
 		<h1>Sélectionner une séquence</h1>
-		<video src="/Sequences.mov" controls autoplay>
+		<video src="/Sequences.mov" loop autoplay on:click={play}>
 			<track kind="captions" />
 		</video>
 		<p>
