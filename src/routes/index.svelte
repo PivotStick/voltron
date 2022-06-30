@@ -1,7 +1,7 @@
 <main>
 	<section>
 		<h1>La timeline</h1>
-		<video src="/Timeline.mov" autoplay loop>
+		<video src="/Timeline.mov" controls autoplay>
 			<track kind="captions" />
 		</video>
 		<p>Sur une séquence on peut :</p>
@@ -15,7 +15,7 @@
 
 	<section>
 		<h1>Se déplacer</h1>
-		<video src="/Mouvements.mov" autoplay loop>
+		<video src="/Mouvements.mov" controls autoplay>
 			<track kind="captions" />
 		</video>
 		<p>Il est également possible de manœuvrer dans la simulation librement</p>
@@ -23,7 +23,7 @@
 
 	<section>
 		<h1>Sélectionner une séquence</h1>
-		<video src="/Sequences.mov" autoplay loop>
+		<video src="/Sequences.mov" controls autoplay>
 			<track kind="captions" />
 		</video>
 		<p>
