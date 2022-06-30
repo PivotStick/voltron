@@ -1,111 +1,94 @@
-<script>
-	import { browser } from '$app/env';
-	import Members from '../lib/Members.svelte';
-	import SimulationPlayer from '../lib/SimulationPlayer.svelte';
-	import { onMount } from 'svelte';
+<main>
+	<section>
+		<h1>La timeline</h1>
+		<video src="/Timeline.mov" autoplay loop>
+			<track kind="captions" />
+		</video>
+		<p>Sur une séquence on peut :</p>
+		<ul>
+			<li>lancer la simulation</li>
+			<li>mettre sur pause</li>
+			<li>bouger sur la timeline</li>
+			<li>rejouer la séquence</li>
+		</ul>
+	</section>
 
-	let index = 0;
-	/**
-	 * @type {HTMLCollectionOf<HTMLElement>}
-	 */
-	let sections = [];
+	<section>
+		<h1>Se déplacer</h1>
+		<video src="/Mouvements.mov" autoplay loop>
+			<track kind="captions" />
+		</video>
+		<p>Il est également possible de manœuvrer dans la simulation librement</p>
+	</section>
 
-	onMount(() => {
-		sections = document.getElementsByTagName('section');
-	});
+	<section>
+		<h1>Sélectionner une séquence</h1>
+		<video src="/Sequences.mov" autoplay loop>
+			<track kind="captions" />
+		</video>
+		<p>
+			Pour chaque accident, il est possible de sélectionner une des prédictions de notre
+			intelligence artificielle, chargé sous forme de séquence
+		</p>
+	</section>
 
-	$: if (browser) {
-		const section = sections[index];
-		if (section) {
-			section.scrollIntoView({ behavior: 'smooth' });
-		}
-	}
-</script>
-
-<svelte:window
-	on:keydown={(e) => {
-		switch (e.key) {
-			case ' ':
-			case 'ArrowDown':
-				e.preventDefault();
-				index = (index + 1) % sections.length;
-				break;
-
-			case 'ArrowUp':
-				e.preventDefault();
-				index = (index - 1 + sections.length) % sections.length;
-				break;
-
-			default:
-				break;
-		}
-	}}
-/>
-
-<section>
-	<h1 style="text-align: center; margin-bottom: 0;">Voltron</h1>
-	<h2 style="text-align: center; font-weight: 400; font-size: 1em;">Virtuality</h2>
-
-	<Members />
-</section>
-
-<section>
-	<img
-		class="tfl"
-		src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/TfL_mark.svg/1200px-TfL_mark.svg.png"
-		alt=""
-	/>
-</section>
-
-<section>
-	<h2 style="text-align: center;">Simulation de condition d’accident</h2>
-
-	<SimulationPlayer />
-</section>
-
-<section>
-	<h2 style="text-align: center; margin-bottom: 1em;">Des technologies adaptées</h2>
-
-	<div class="techs">
+	<section>
+		<h1 style="text-align: center;">Notre choix technologique</h1>
 		<img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Unity_2021.svg" alt="" />
+		<h2 style="margin-top: 2em;">Pourquoi ?</h2>
+		<p>
+			Premièrement, ça nous permet de répondre à l'intégralité des demandes faites dans le cahier
+			des charges
+		</p>
+		<p>
+			Ensuite, on a déjà de l'expérience sur Unity3D ce qui améliorera notre productivité et réduira
+			donc les coups
+		</p>
+		<h2 style="margin-top: 2em;">Qu'est-ce que c'est ?</h2>
+		<p>Unity3D est un moteur 3D gratuit connu</p>
+	</section>
+
+	<section>
+		<h1 style="text-align: center;">Modélisation 3D !</h1>
 		<img
 			src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Logo_Blender.svg/1280px-Logo_Blender.svg.png"
 			alt=""
 		/>
-	</div>
-</section>
+		<h2 style="margin-top: 2em;">Pourquoi ?</h2>
+		<p>Blender est un projet open source pour modéliser et faire des animations 3D</p>
+		<p>Il est gratuit et on l'utilisera pour modéliser les différents types de véhicule</p>
+		<p>
+			Comme nous avons déjà de l'expérience dessus, ce choix était avantageux pour encore réduire
+			les coûts de production
+		</p>
+	</section>
+</main>
 
-<!-- Cloud: Sécurisé (Confidentialité), Indépendant des autres infrastructure TFL (Ségrégation de données), service autonome (Automatisé).
-
-Sécurity: Données sécurisées et chiffrées, instruction des solutions de sécurité clair (Doc), Définir plusieurs niveau d’accès et géré tout type d’erreur involontaire (Système de droit).
-
-IOT: Capteur pour récolter les données les plus utiles possibles, Les capteurs sont robuste, flexible, non dangereux et surveillé (Manuel ou interface ??),  il faut « Proof of Concept » doit déterminer les endroits précis des capteurs, leurs tailles, leurs fonction et leurs protection
-
-BigData: Donnée store dans une BDD maison, Interface pour analysée, synthétisé et affichée en direct (Dashboard), Toute données non habituel ferait object d’alarme.
-
-AI: Algorithme de simulation réaliste de plusieurs trajectoire possible de véhicule, s’améliore avec l’accumulation de données (Machine Learning) -->
 <style lang="scss">
-	section {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		height: 100vh;
-		padding: 2em 10vw;
+	main {
+		padding: 5vw;
 	}
 
-	img.tfl {
+	section {
+		padding: 2.5em;
+	}
+
+	img {
+		display: block;
 		width: 100%;
 	}
 
-	.techs {
-		display: flex;
-		gap: 2em;
+	video {
+		display: block;
+		width: 100%;
+		border-radius: 0.5em;
+	}
 
-		img {
-			width: 100%;
-			min-width: 0;
-			object-fit: contain;
-		}
+	p {
+		margin: 1em 0;
+	}
+
+	ul {
+		margin-left: 2em;
 	}
 </style>
